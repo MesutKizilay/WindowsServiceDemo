@@ -1,4 +1,4 @@
-﻿namespace WindowsService1
+﻿namespace WindowsServiceDemo
 {
     partial class Service1
     {
