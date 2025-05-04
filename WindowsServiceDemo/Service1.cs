@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using WindowsServiceDemo.DataAccess;
 using WindowsServiceDemo.Entities;
@@ -39,7 +32,7 @@ namespace WindowsServiceDemo
                 Timer_Elapsed(null, null);
                 _timer.Interval = 10000;
                 _timer.Enabled = true;
-                _timer.Elapsed += Timer_Elapsed;
+                _timer.Elapsed += new ElapsedEventHandler(Timer_Elapsed);
                 _timer.Start();
             }
             catch (Exception ex)

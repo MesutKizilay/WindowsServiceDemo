@@ -8,7 +8,7 @@
     <ProjectGuid>{67D6BFBB-BE71-4340-9EF5-2BCC2729EB60}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WindowsServiceDemo</RootNamespace>
-    <AssemblyName>SulumanimNereGidersin</AssemblyName>
+    <AssemblyName>WindowsServiceDemo</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -158,6 +158,7 @@
     <Reference Include="System.IO.Pipelines, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.9.0.4\lib\net462\System.IO.Pipelines.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -200,6 +201,12 @@
     <Compile Include="DataAccess\TsContext.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Helper\LogHelper.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -224,6 +231,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
